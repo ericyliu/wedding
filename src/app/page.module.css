@@ -90,8 +90,9 @@
   color: #d1433a;
 
   .h1 {
-    font-size: 175px;
+    font-size: 195px;
     font-weight: 900;
+    font-family: "LXGW WenKai TC";
   }
 
   .p1 {
@@ -114,6 +115,8 @@
     text-align: center;
     margin-top: 32px;
     line-height: 32px;
+    font-family: "LXGW WenKai TC";
+    font-weight: 600;
   }
 }
 
