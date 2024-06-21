@@ -7,25 +7,121 @@
   background: linear-gradient(0deg, #ffffff, #f5e4a3);
 }
 
-.content {
+.middle {
   width: 50%;
   position: relative;
   height: 100vh;
 }
 
+.image {
+  object-fit: contain;
+}
+
 .backgroundLantern {
-  width: 23%;
-  height: 75%;
+  width: 31%;
+  height: 100%;
   position: absolute;
-  top: 0;
+  top: -9%;
+
+  .image {
+    object-position: center -20px;
+  }
 
   &:nth-child(1) {
-    left: 10%;
+    left: 5%;
   }
 
   &:nth-child(2) {
-    right: 10%;
+    right: 5%;
+
+    .image {
+      transform: scaleX(-1);
+    }
   }
+}
+
+.foregroundLantern {
+  width: 24%;
+  height: 65%;
+  position: absolute;
+  top: -20px;
+
+  .image {
+    object-position: left -20px;
+  }
+
+  &:nth-child(1) {
+    left: 2.5%;
+  }
+
+  &:nth-child(2) {
+    right: 2.5%;
+
+    .image {
+      transform: scaleX(-1);
+    }
+  }
+}
+
+.loki {
+  width: 20%;
+  height: 20%;
+  bottom: 10%;
+  left: -8%;
+  position: absolute;
+}
+
+.teemo {
+  width: 28%;
+  height: 28%;
+  bottom: 10%;
+  right: -12%;
+  position: absolute;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  height: 100%;
+  width: 100%;
+  color: #d1433a;
+
+  .h1 {
+    font-size: 175px;
+    font-weight: 900;
+  }
+
+  .p1 {
+    margin-top: 32px;
+    margin-bottom: 16px;
+  }
+
+  .p1,
+  .p2 {
+    font-size: 38px;
+  }
+
+  .bold {
+    font-size: 48px;
+    font-weight: 600;
+  }
+
+  .info {
+    font-size: 24px;
+    text-align: center;
+    margin-top: 32px;
+    line-height: 32px;
+  }
+}
+
+.couple {
+  width: 60%;
+  height: 50%;
+  position: relative;
+  left: -4%;
 }
 
 .doorContainer {

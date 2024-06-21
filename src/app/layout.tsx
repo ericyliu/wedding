@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Ma_Shan_Zheng } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
+const font1 = Ma_Shan_Zheng({ subsets: ["latin"], weight: "400" });
 
 export const metadata: Metadata = {
   title: "Eric <3 Angela",
@@ -16,7 +16,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={font1.className}>{children}</body>
     </html>
   );
 }
