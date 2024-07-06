@@ -7,7 +7,7 @@ const cnFont = Ma_Shan_Zheng({ subsets: ["latin"], weight: "400" });
 const enFont = Source_Sans_3({ subsets: ["latin"], weight: "400" });
 
 export const metadata: Metadata = {
-  title: "Eric <3 Angela",
+  title: "Eric ❤️ Angela",
   description: "Come celebrate with us!",
 };
 
