@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Ma_Shan_Zheng, Source_Sans_3 } from "next/font/google";
 import "./globals.css";
+import { Suspense } from "react";
 
 const cnFont = Ma_Shan_Zheng({ subsets: ["latin"], weight: "400" });
 const enFont = Source_Sans_3({ subsets: ["latin"], weight: "400" });
@@ -36,7 +37,7 @@ export default function RootLayout({
           params.language === "cn" ? cnFont.className : enFont.className
         }
       >
-        {children}
+        <Suspense>{children}</Suspense>
       </body>
     </html>
   );
