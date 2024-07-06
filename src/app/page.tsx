@@ -3,10 +3,11 @@
 import Image from "next/image";
 import styles from "./page.module.css";
 import { motion } from "framer-motion";
-import { useSearchParams } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 
 export default function Home() {
   const params = useSearchParams();
+  const router = useRouter();
   const language = params.get("language");
   return (
     <main className={styles.main}>
@@ -176,6 +177,40 @@ export default function Home() {
               Save to Calendar
             </a>
           </motion.div>
+          <div className={styles.languageContainer}>
+            <div
+              className={styles.language}
+              style={
+                language !== "cn"
+                  ? {
+                      background: "#d20c1d",
+                      color: "#fff7a5",
+                    }
+                  : {}
+              }
+              onClick={() => {
+                router.push("?language=en");
+              }}
+            >
+              EN
+            </div>
+            <div
+              className={styles.language}
+              style={
+                language === "cn"
+                  ? {
+                      background: "#d20c1d",
+                      color: "#fff7a5",
+                    }
+                  : {}
+              }
+              onClick={() => {
+                router.push("?language=cn");
+              }}
+            >
+              中文
+            </div>
+          </div>
         </motion.div>
       </div>
       <div className={styles.doorContainer}>
