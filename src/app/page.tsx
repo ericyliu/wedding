@@ -3,8 +3,11 @@
 import Image from "next/image";
 import styles from "./page.module.css";
 import { motion } from "framer-motion";
+import { useSearchParams } from "next/navigation";
 
 export default function Home() {
+  const params = useSearchParams();
+  const language = params.get("language");
   return (
     <main className={styles.main}>
       <div className={styles.middle}>
@@ -28,32 +31,78 @@ export default function Home() {
             </div>
           </div>
           <div>
-            <div className={styles.foregroundLantern}>
+            <motion.div
+              initial={{ y: "-65%" }}
+              animate={{ y: "0%" }}
+              transition={{
+                duration: 1.2,
+                delay: 1.5,
+                bounce: 0.3,
+                type: "spring",
+              }}
+              className={styles.foregroundLantern}
+            >
               <Image
                 className={styles.image}
                 src="/foreground-lantern.png"
                 alt="lantern"
                 fill
               />
-            </div>
-            <div className={styles.foregroundLantern}>
+            </motion.div>
+            <motion.div
+              initial={{ y: "-65%" }}
+              animate={{ y: "0%" }}
+              transition={{
+                duration: 1.2,
+                delay: 1.65,
+                bounce: 0.3,
+                type: "spring",
+              }}
+              className={styles.foregroundLantern}
+            >
               <Image
                 className={styles.image}
                 src="/foreground-lantern.png"
                 alt="lantern"
                 fill
               />
-            </div>
+            </motion.div>
           </div>
-          <div className={styles.loki}>
+          <motion.div
+            style={{ originY: 1.2 }}
+            initial={{ rotate: -60 }}
+            animate={{ rotate: 0 }}
+            transition={{ duration: 3, delay: 2 }}
+            className={styles.loki}
+          >
             <Image className={styles.image} src="/loki.png" alt="loki" fill />
-          </div>
-          <div className={styles.teemo}>
+          </motion.div>
+          <motion.div
+            style={{ originY: 1.2 }}
+            initial={{ rotate: 60 }}
+            animate={{ rotate: 0 }}
+            transition={{ duration: 3, delay: 2 }}
+            className={styles.teemo}
+          >
             <Image className={styles.image} src="/teemo.png" alt="loki" fill />
-          </div>
+          </motion.div>
         </div>
-        <div className={styles.content}>
-          <h1 className={styles.h1}>囍</h1>
+        <motion.div
+          animate={{ zIndex: 99 }}
+          transition={{ delay: 1.5, duration: 0.1 }}
+          className={styles.content}
+        >
+          <motion.h1
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{
+              duration: 3,
+              delay: 2,
+            }}
+            className={styles.h1}
+          >
+            囍
+          </motion.h1>
           <div className={styles.couple}>
             <Image
               className={styles.image}
@@ -62,16 +111,72 @@ export default function Home() {
               fill
             />
           </div>
-          <p className={styles.p1}>請和我們一起慶祝</p>
-          <p className={styles.p2}>
-            <b className={styles.bold}>刘宇辉</b> 和{" "}
-            <b className={styles.bold}>袁詠欣</b>
-          </p>
-          <div className={styles.info}>
-            <p>April 19, 2025</p>
-            <p>Queens, NY</p>
-          </div>
-        </div>
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{
+              duration: 3,
+              delay: 2.5,
+            }}
+            className={styles.p1}
+            style={
+              language === "cn"
+                ? {}
+                : { fontFamily: "Merienda", fontWeight: 700 }
+            }
+          >
+            {language === "cn" ? "請和我們一起慶祝" : "Angela and Eric"}
+          </motion.p>
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{
+              duration: 3,
+              delay: 2.5,
+            }}
+            className={styles.p2}
+            style={
+              language === "cn"
+                ? {}
+                : {
+                    fontFamily: "Merienda",
+                    fontWeight: 700,
+                    fontSize: "24px",
+                  }
+            }
+          >
+            {language === "cn" ? (
+              <>
+                <b className={styles.bold}>刘宇辉</b> 和{" "}
+                <b className={styles.bold}>袁詠欣</b>
+              </>
+            ) : (
+              "joyfully invites you to their wedding celebration"
+            )}
+          </motion.p>
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{
+              duration: 3,
+              delay: 3,
+            }}
+            className={styles.info}
+            style={{
+              fontFamily: language === "cn" ? "LXGW WenKai TC" : "",
+            }}
+          >
+            <p>{language === "cn" ? "2025 年 4 月 19 日" : "April 19, 2025"}</p>
+            <p>{language === "cn" ? "法拉盛, 纽约" : "Flushing, NY"}</p>
+            <a
+              href="https://calendar.app.google/jARLVjMvqraPAxKc8"
+              className={styles.link}
+              target="_blank"
+            >
+              Save to Calendar
+            </a>
+          </motion.div>
+        </motion.div>
       </div>
       <div className={styles.doorContainer}>
         <div className={styles.door}>

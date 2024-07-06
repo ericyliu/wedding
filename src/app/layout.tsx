@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
-import { Ma_Shan_Zheng } from "next/font/google";
+import { Ma_Shan_Zheng, Source_Sans_3 } from "next/font/google";
 import "./globals.css";
 
-const font1 = Ma_Shan_Zheng({ subsets: ["latin"], weight: "400" });
+const cnFont = Ma_Shan_Zheng({ subsets: ["latin"], weight: "400" });
+const enFont = Source_Sans_3({ subsets: ["latin"], weight: "400" });
 
 export const metadata: Metadata = {
   title: "Eric <3 Angela",
@@ -11,8 +12,10 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
+  params,
 }: Readonly<{
   children: React.ReactNode;
+  params: { language: string };
 }>) {
   return (
     <html lang="en">
@@ -23,8 +26,18 @@ export default function RootLayout({
           href="https://fonts.googleapis.com/css2?family=LXGW+WenKai+TC&display=swap"
           rel="stylesheet"
         />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Merienda:wght@300..900&display=swap"
+          rel="stylesheet"
+        />
       </head>
-      <body className={font1.className}>{children}</body>
+      <body
+        className={
+          params.language === "cn" ? cnFont.className : enFont.className
+        }
+      >
+        {children}
+      </body>
     </html>
   );
 }

@@ -88,6 +88,9 @@
   height: 100%;
   width: 100%;
   color: #d1433a;
+  position: relative;
+  padding: 32px 0;
+  box-sizing: border-box;
 
   .h1 {
     font-size: 195px;
@@ -115,8 +118,29 @@
     text-align: center;
     margin-top: 32px;
     line-height: 32px;
-    font-family: "LXGW WenKai TC";
     font-weight: 600;
+
+    .link {
+      color: #fff7a5;
+      text-decoration: none;
+      background: #d20c1d;
+      padding: 7px 14px;
+      font-size: 18px;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.3s;
+      display: block;
+      margin-top: 16px;
+
+      &:hover {
+        color: #fff9c0;
+        background: #bd0b1a;
+      }
+
+      &:active {
+        transform: scale(1.1);
+      }
+    }
   }
 }
 
