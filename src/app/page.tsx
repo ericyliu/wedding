@@ -152,7 +152,7 @@ export default function Home() {
                 <b className={styles.bold}>袁詠欣</b>
               </>
             ) : (
-              "joyfully invites you to their wedding celebration"
+              "joyfully invite you to their wedding celebration on"
             )}
           </motion.p>
           <motion.div
@@ -174,7 +174,7 @@ export default function Home() {
               className={styles.link}
               target="_blank"
             >
-              Save to Calendar
+              Save the date
             </a>
           </motion.div>
           <div className={styles.languageContainer}>
