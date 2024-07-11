@@ -219,14 +219,14 @@ export default function Home() {
         </div>
         <motion.div
           animate={{ x: "-100%" }}
-          transition={{ duration: 1.7 }}
+          transition={{ duration: 1.7, delay: 0.5 }}
           className={styles.door}
         >
           <Image src="/door.png" alt="door" fill />
         </motion.div>
         <motion.div
           animate={{ x: "100%" }}
-          transition={{ duration: 1.7 }}
+          transition={{ duration: 1.7, delay: 0.5 }}
           className={styles.door}
         >
           <Image src="/door.png" alt="door" fill />
