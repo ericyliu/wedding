@@ -1,5 +1,6 @@
 "use client";
 
+import React from "react";
 import Image from "next/image";
 import styles from "./page.module.css";
 import { motion } from "framer-motion";
@@ -169,12 +170,8 @@ export default function Home() {
           >
             <p>{language === "cn" ? "2025 年 4 月 19 日" : "April 19, 2025"}</p>
             <p>{language === "cn" ? "法拉盛, 纽约" : "Flushing, NY"}</p>
-            <a
-              href="https://calendar.app.google/jARLVjMvqraPAxKc8"
-              className={styles.link}
-              target="_blank"
-            >
-              Save the date
+            <a href="/rsvp" className={styles.link}>
+              RSVP
             </a>
           </motion.div>
           <div className={styles.languageContainer}>
