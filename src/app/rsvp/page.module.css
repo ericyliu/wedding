@@ -42,6 +42,7 @@
   color: #f5e4a3;
   font-size: 1.2rem;
   font-family: "LXGW WenKai TC";
+  box-shadow: 3px 3px 3px #33333355;
 
   &.loading {
     display: flex;
