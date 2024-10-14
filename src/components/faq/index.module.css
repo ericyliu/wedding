@@ -1,0 +1,31 @@
+.container {
+  padding: 6rem;
+
+  @media only screen and (max-width: 700px) {
+    padding: 2rem;
+  }
+}
+
+.header {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+.qaItem {
+  margin-bottom: 2rem;
+}
+
+.title {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.text {
+  font-size: 0.9rem;
+  line-height: 1.3rem;
+  color: #131313;
+
+  .bold {
+    color: #d1433a;
+  }
+}

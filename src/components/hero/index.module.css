@@ -1,0 +1,192 @@
+.container {
+  height: 100vh;
+  position: relative;
+}
+
+.image {
+  object-fit: contain;
+}
+
+.backgroundLantern {
+  width: 31%;
+  height: 100%;
+  position: absolute;
+  top: -9%;
+
+  .image {
+    object-position: center -20px;
+  }
+
+  &:nth-child(1) {
+    left: 5%;
+  }
+
+  &:nth-child(2) {
+    right: 5%;
+
+    .image {
+      transform: scaleX(-1);
+    }
+  }
+}
+
+.foregroundLantern {
+  width: 24%;
+  height: 65%;
+  position: absolute;
+  top: -20px;
+
+  .image {
+    object-position: left -20px;
+  }
+
+  &:nth-child(1) {
+    left: 2.5%;
+  }
+
+  &:nth-child(2) {
+    right: 2.5%;
+
+    .image {
+      transform: scaleX(-1);
+    }
+  }
+}
+
+.loki {
+  width: 20%;
+  height: 20%;
+  bottom: 10%;
+  left: -8%;
+  position: absolute;
+}
+
+.teemo {
+  width: 28%;
+  height: 28%;
+  bottom: 10%;
+  right: -12%;
+  position: absolute;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  height: 100%;
+  width: 100%;
+  color: #d1433a;
+  padding: 2rem 2rem 3rem;
+  box-sizing: border-box;
+
+  .h1 {
+    font-size: 195px;
+    font-weight: 900;
+    font-family: "LXGW WenKai TC";
+    margin-top: 32px;
+
+    @media only screen and (max-width: 700px) {
+      font-size: 5rem;
+    }
+  }
+
+  .p1 {
+    margin-top: 32px;
+    margin-bottom: 16px;
+  }
+
+  .p1,
+  .p2 {
+    font-size: 38px;
+    text-align: center;
+    line-height: 36px;
+
+    @media only screen and (max-width: 700px) {
+      font-size: 1.5rem;
+    }
+  }
+
+  .bold {
+    font-size: 48px;
+    font-weight: 600;
+
+    @media only screen and (max-width: 700px) {
+      font-size: 1.6rem;
+    }
+  }
+
+  .info {
+    font-size: 24px;
+    text-align: center;
+    margin-top: 32px;
+    line-height: 32px;
+    font-weight: 600;
+
+    @media only screen and (max-width: 700px) {
+      font-size: 1rem;
+    }
+
+    .link {
+      color: #fff7a5;
+      text-decoration: none;
+      background: #d20c1d;
+      padding: 14px 28px;
+      font-size: 24px;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.3s;
+      display: block;
+      margin-top: 32px;
+      margin-bottom: 32px;
+
+      &:hover {
+        color: #fff9c0;
+        background: #bd0b1a;
+      }
+
+      &:active {
+        transform: scale(1.1);
+      }
+    }
+  }
+
+  .languageContainer {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    display: flex;
+    gap: 8px;
+    font-weight: 800;
+
+    .language {
+      position: relative;
+      overflow: hidden;
+      padding: 4px;
+      cursor: pointer;
+      border-radius: 3px;
+      transition: background 0.3s;
+
+      &:hover {
+        text-decoration: underline;
+      }
+
+      &:nth-child(2) {
+        font-size: 14px;
+        line-height: 16px;
+      }
+    }
+  }
+}
+
+.couple {
+  width: 60%;
+  height: 50%;
+  position: relative;
+  left: -4%;
+
+  @media only screen and (max-width: 1200px) {
+    height: 30%;
+  }
+}

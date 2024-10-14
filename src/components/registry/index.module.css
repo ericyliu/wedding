@@ -1,0 +1,30 @@
+.container {
+  background: #d1433a;
+  color: white;
+  text-align: center;
+  padding: 4rem 2rem;
+}
+
+.header {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+.text {
+  max-width: 40rem;
+  margin: 0 auto;
+  font-size: 1.2rem;
+  line-height: 1.5rem;
+  margin-bottom: 1.5rem;
+
+  .bold {
+    font-weight: bold;
+    font-size: 1.3rem;
+    text-decoration: underline;
+    color: white;
+
+    &:hover {
+      color: #f5e4a3;
+    }
+  }
+}

@@ -79,7 +79,7 @@ export default function RSVP() {
       {loading && (
         <div className={`${styles.form} ${styles.loading}`}>
           <h1 className={styles.title}>Submitting your RSVP, please wait!</h1>
-          <ReactLoading type="bubbles" color="#f5e4a3 " />
+          <ReactLoading type="bubbles" color="#f5e4a3" />
         </div>
       )}
       {!loading && !success && (

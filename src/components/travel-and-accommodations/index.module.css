@@ -1,0 +1,150 @@
+.title {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+.text {
+  font-size: 1.1rem;
+  line-height: 1.4rem;
+  margin-bottom: 2rem;
+
+  &.center {
+    text-align: center;
+    max-width: 30rem;
+    margin: 0 auto 2rem;
+  }
+
+  &.bold {
+    color: #d1433a;
+  }
+
+  &.long {
+    max-width: 40rem;
+    margin: 4rem auto;
+    line-height: 1.7rem;
+
+    @media only screen and (max-width: 700px) {
+      padding: 0 1rem;
+    }
+  }
+}
+
+.columns {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  margin-bottom: 2rem;
+  padding: 2rem 1rem;
+
+  @media only screen and (max-width: 700px) {
+    flex-direction: column;
+  }
+
+  .column {
+    flex: 1;
+
+    @media only screen and (max-width: 700px) {
+      width: 100%;
+      padding: 0 1rem;
+    }
+
+    &.right {
+      text-align: right;
+
+      @media only screen and (max-width: 700px) {
+        text-align: left;
+      }
+    }
+
+    .text {
+      margin-bottom: 1rem;
+      line-height: 1.5rem;
+      font-size: 1.2rem;
+
+      &.bold {
+        color: #d1433a;
+        font-size: 1.4rem;
+      }
+    }
+  }
+}
+
+.map {
+  height: 30vh;
+  border-radius: 1rem;
+  box-shadow: 3px 3px 3px #33333355;
+}
+
+.favoriteSpots {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.spot {
+  background: #d1433a;
+  border-radius: 1rem;
+  height: 30vh;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 3px 3px 3px #33333355;
+
+  .name {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background: linear-gradient(0deg, #000000, #00000000);
+    height: 3rem;
+    width: 100%;
+    color: white;
+    text-align: right;
+    padding: 1rem;
+    box-sizing: border-box;
+    font-size: 1.3rem;
+    transition: height 0.3s, font-size 0.3s;
+
+    .description {
+      text-align: center;
+      margin-top: 2rem;
+      height: 65%;
+      display: flex;
+      align-items: center;
+      line-height: 1.5rem;
+      font-size: 1rem;
+      padding: 0 2rem;
+    }
+
+    @media only screen and (max-width: 700px) {
+      font-size: 1rem;
+      line-height: 1.2rem;
+      height: 4rem;
+
+      .description {
+        display: none;
+      }
+    }
+  }
+
+  &:hover .name {
+    height: 100%;
+
+    @media only screen and (max-width: 700px) {
+      height: 4rem;
+    }
+  }
+}
+
+.image {
+  object-fit: cover;
+}
+
+.link {
+  color: #d1433a;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
