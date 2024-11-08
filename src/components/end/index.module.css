@@ -1,0 +1,11 @@
+.container {
+  background: #d1433a;
+  color: white;
+  text-align: center;
+  padding: 10rem 2rem;
+}
+
+.header {
+  font-size: 2rem;
+  line-height: 2.5rem;
+}

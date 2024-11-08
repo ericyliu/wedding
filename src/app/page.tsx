@@ -8,6 +8,7 @@ import { LocationAndSchedule } from "@/components/location-and-schedule";
 import { TravelAccommodations } from "@/components/travel-and-accommodations";
 import { Registry } from "@/components/registry";
 import { FAQ } from "@/components/faq";
+import { End } from "@/components/end";
 
 export default function Home() {
   const params = useSearchParams();
@@ -19,6 +20,7 @@ export default function Home() {
       <TravelAccommodations />
       <Registry />
       <FAQ />
+      <End />
     </PageContainer>
   );
 }

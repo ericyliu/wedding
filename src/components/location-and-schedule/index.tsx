@@ -1,9 +1,24 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import styles from "./index.module.css";
 import { Section } from "../section";
+import { motion, useInView, Variants } from "framer-motion";
+import Image from "next/image";
 
 export const LocationAndSchedule = () => {
   const [countdown, setCountdown] = useState("");
+
+  const ref = useRef<HTMLDivElement>(null);
+  const inView = useInView(ref, { amount: 0.5 });
+  const variants: Variants = {
+    in: {
+      top: 0,
+      transition: { duration: 1 },
+    },
+    out: {
+      top: "-34%",
+      transition: { duration: 1 },
+    },
+  };
 
   useEffect(() => {
     const weddingDate = new Date("2025-04-19T17:00:00");
@@ -12,11 +27,6 @@ export const LocationAndSchedule = () => {
       const timeLeft = weddingDate.getTime() - now.getTime();
 
       const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-      const hours = Math.floor(
-        (timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
-      );
-      const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
 
       setCountdown(`${days}`);
 
@@ -30,7 +40,7 @@ export const LocationAndSchedule = () => {
   }, []);
 
   return (
-    <Section>
+    <Section ref={ref}>
       <div className={styles.columns}>
         <div className={`${styles.column} ${styles.right}`}>
           <h2 className={styles.header}>Location</h2>
@@ -52,6 +62,14 @@ export const LocationAndSchedule = () => {
           <h3>Only</h3>
           <p className={styles.countdownText}>{countdown}</p>
           <p>days to go!</p>
+          <motion.div
+            initial="in"
+            animate={inView ? "out" : "in"}
+            variants={variants}
+            className={styles.loki}
+          >
+            <Image className={styles.image} src="/loki.png" alt="loki" fill />
+          </motion.div>
         </div>
         <div className={styles.column}>
           <h2 className={styles.header}>Schedule</h2>

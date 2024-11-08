@@ -3,13 +3,17 @@ import Image from "next/image";
 import styles from "./index.module.css";
 import { motion } from "framer-motion";
 
-export const PageContainer = ({ children }: React.PropsWithChildren) => {
+export const PageContainer = React.forwardRef<
+  HTMLDivElement,
+  React.PropsWithChildren
+>(function PageContainer({ children }, ref) {
   return (
     <main className={styles.main}>
       <motion.div
         animate={{ zIndex: 99 }}
         transition={{ delay: 1.5, duration: 0.1 }}
         className={styles.middle}
+        ref={ref}
       >
         {children}
       </motion.div>
@@ -37,4 +41,4 @@ export const PageContainer = ({ children }: React.PropsWithChildren) => {
       </div>
     </main>
   );
-};
+});

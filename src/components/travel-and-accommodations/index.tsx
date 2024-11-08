@@ -1,11 +1,24 @@
-import React from "react";
+import React, { useRef } from "react";
 import styles from "./index.module.css";
 import { Section } from "../section";
 import Image from "next/image";
+import { useInView, Variants, motion } from "framer-motion";
 
 export const TravelAccommodations = () => {
+  const ref = useRef<HTMLDivElement>(null);
+  const inView = useInView(ref, { amount: 0.3 });
+  const variants: Variants = {
+    in: {
+      top: 0,
+      transition: { duration: 1 },
+    },
+    out: {
+      top: "-40%",
+      transition: { duration: 1 },
+    },
+  };
   return (
-    <Section>
+    <Section ref={ref}>
       <h2 className={styles.title}>Travel & Accommodations</h2>
       <p className={`${styles.text} ${styles.center}`}>
         We recommend flying into{" "}
@@ -45,15 +58,25 @@ export const TravelAccommodations = () => {
             Book here
           </a>
         </div>
-        <iframe
-          className={`${styles.column} ${styles.map}`}
-          width="600"
-          height="450"
-          loading="lazy"
-          referrerPolicy="no-referrer-when-downgrade"
-          src="https://www.google.com/maps/embed/v1/place?key=AIzaSyD-Zrmli7Gew3vvg9h3-_qPdR0igFm9Fcs
+        <div className={`${styles.column} ${styles.map}`}>
+          <iframe
+            className={styles.mapInner}
+            width="600"
+            height="450"
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            src="https://www.google.com/maps/embed/v1/place?key=AIzaSyD-Zrmli7Gew3vvg9h3-_qPdR0igFm9Fcs
     &q=Hyatt+Place+Flushing/LaGuardia+Airport"
-        />
+          />
+          <motion.div
+            initial="in"
+            animate={inView ? "out" : "in"}
+            variants={variants}
+            className={styles.teemo}
+          >
+            <Image className={styles.image} src="/teemo.png" alt="teemo" fill />
+          </motion.div>
+        </div>
       </div>
 
       <p className={`${styles.text} ${styles.long}`}>

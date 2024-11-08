@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useRef } from "react";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion, useInView, Variants } from "framer-motion";
 import { useRouter } from "next/navigation";
 import styles from "./index.module.css";
 
@@ -10,8 +10,28 @@ interface Props {
 
 export const Hero = ({ language }: Props) => {
   const router = useRouter();
+  const ref = useRef<HTMLDivElement>(null);
+  const inView = useInView(ref, { amount: 0.5 });
+  const lokiVariants: Variants = {
+    in: {
+      rotate: -60,
+      transition: { delay: 0, duration: 2 },
+    },
+    out: {
+      rotate: 0,
+    },
+  };
+  const teemoVariants: Variants = {
+    in: {
+      rotate: 60,
+      transition: { delay: 0, duration: 2 },
+    },
+    out: {
+      rotate: 0,
+    },
+  };
   return (
-    <section className={styles.container}>
+    <section className={styles.container} ref={ref}>
       <div>
         <div>
           <div className={styles.backgroundLantern}>
@@ -71,8 +91,9 @@ export const Hero = ({ language }: Props) => {
         </div>
         <motion.div
           style={{ originY: 1.2 }}
-          initial={{ rotate: -60 }}
-          animate={{ rotate: 0 }}
+          initial="in"
+          animate={inView ? "out" : "in"}
+          variants={lokiVariants}
           transition={{ duration: 3, delay: 2 }}
           className={styles.loki}
         >
@@ -80,8 +101,9 @@ export const Hero = ({ language }: Props) => {
         </motion.div>
         <motion.div
           style={{ originY: 1.2 }}
-          initial={{ rotate: 60 }}
-          animate={{ rotate: 0 }}
+          initial="in"
+          animate={inView ? "out" : "in"}
+          variants={teemoVariants}
           transition={{ duration: 3, delay: 2 }}
           className={styles.teemo}
         >
