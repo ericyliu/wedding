@@ -50,13 +50,17 @@ export const TravelAccommodations = () => {
           </p>
           <p className={styles.text}>133-42 39th Ave, Flushing, NY 11354</p>
           <a
-            href="#"
+            href="https://www.hyatt.com/hyatt-place/en-US/nyczf-hyatt-place-flushing-laguardia-airport?corp_id=G-WBYL"
             target="_blank"
             rel="noopener noreferrer"
             className={styles.link}
           >
             Book here
           </a>
+          <p className={`${styles.text} ${styles.small}`}>
+            (Hotel block bookings must be within the following dates: 4/18 -
+            4/20)
+          </p>
         </div>
         <div className={`${styles.column} ${styles.map}`}>
           <iframe

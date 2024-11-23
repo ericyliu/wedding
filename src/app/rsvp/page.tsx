@@ -7,18 +7,30 @@ import styles from "./page.module.css";
 import { RSVPRequestBody } from "../../types/routes";
 
 export default function RSVP() {
+  const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
   const [success, setSuccess] = useState<boolean>(false);
   const [name, setName] = useState<string>("");
+  const [email, setEmail] = useState<string>("");
   const [additionalGuestCount, setAdditionalGuestCount] = useState<number>(0);
   const [additionalGuests, setAdditionalGuests] = useState<string[]>([]);
   const [dietaryRestrictions, setDietaryRestrictions] = useState<string>("");
   const [otherComments, setOtherComments] = useState<string>("");
   const onSubmit: FormEventHandler<HTMLFormElement> = useCallback(
     async (event) => {
+      setError(null);
       event.preventDefault();
+      if (email.length === 0) {
+        setError("Email is required");
+        return;
+      }
+      if (name.length === 0) {
+        setError("Name is required");
+        return;
+      }
       setLoading(true);
       const body: RSVPRequestBody = {
+        email,
         name,
         additionalGuestCount,
         additionalGuests,
@@ -38,11 +50,13 @@ export default function RSVP() {
       }
     },
     [
+      email,
       name,
       additionalGuestCount,
       additionalGuests,
       dietaryRestrictions,
       otherComments,
+      setError,
     ]
   );
   return (
@@ -85,6 +99,13 @@ export default function RSVP() {
       {!loading && !success && (
         <form className={styles.form} onSubmit={onSubmit}>
           <h1 className={styles.title}>RSVP</h1>
+          <div className={styles.row}>
+            <label>Email</label>
+            <input
+              className={styles.input}
+              onChange={(event) => setEmail(event.target.value)}
+            />
+          </div>
           <div className={styles.row}>
             <label>Name (First and Last)</label>
             <input
@@ -152,6 +173,7 @@ export default function RSVP() {
               value={otherComments}
             />
           </div>
+          {error && <p className={styles.error}>*{error}</p>}
           <input className={styles.button} type="submit" />
         </form>
       )}

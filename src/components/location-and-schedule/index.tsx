@@ -4,7 +4,11 @@ import { Section } from "../section";
 import { motion, useInView, Variants } from "framer-motion";
 import Image from "next/image";
 
-export const LocationAndSchedule = () => {
+interface Props {
+  language: string | null;
+}
+
+export const LocationAndSchedule = ({ language }: Props) => {
   const [countdown, setCountdown] = useState("");
 
   const ref = useRef<HTMLDivElement>(null);
@@ -43,9 +47,17 @@ export const LocationAndSchedule = () => {
     <Section ref={ref}>
       <div className={styles.columns}>
         <div className={`${styles.column} ${styles.right}`}>
-          <h2 className={styles.header}>Location</h2>
-          <p className={`${styles.text} ${styles.bold}`}>Asian Jewels</p>
-          <p className={styles.text}>133-30 39th Ave, Flushing, NY 11354</p>
+          <h2 className={styles.header}>
+            {language === "cn" ? "地点" : "Location"}
+          </h2>
+          <p className={`${styles.text} ${styles.bold}`}>
+            {language === "cn" ? "敦城海鮮酒家" : "Asian Jewels"}
+          </p>
+          <p className={styles.text}>
+            {language === "cn"
+              ? "紐約法拉盛39大道133-30號"
+              : "133-30 39th Ave, Flushing, NY 11354"}
+          </p>
         </div>
         <iframe
           className={`${styles.column} ${styles.map}`}

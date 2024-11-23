@@ -9,6 +9,11 @@
   line-height: 1.4rem;
   margin-bottom: 2rem;
 
+  &.small {
+    font-size: 0.9rem;
+    margin-top: 1rem;
+  }
+
   &.center {
     text-align: center;
     max-width: 30rem;
@@ -61,6 +66,10 @@
       margin-bottom: 1rem;
       line-height: 1.5rem;
       font-size: 1.2rem;
+
+      &.small {
+        font-size: 0.9rem;
+      }
 
       &.bold {
         color: #d1433a;
@@ -150,6 +159,7 @@
 .link {
   color: #d1433a;
   text-decoration: none;
+  font-size: 1.3rem;
 
   &:hover {
     text-decoration: underline;

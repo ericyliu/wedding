@@ -163,3 +163,7 @@
     filter: brightness(1.1);
   }
 }
+
+.error {
+  color: white;
+}

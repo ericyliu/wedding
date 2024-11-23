@@ -16,7 +16,7 @@ export default function Home() {
   return (
     <PageContainer>
       <Hero language={language} />
-      <LocationAndSchedule />
+      <LocationAndSchedule language={language} />
       <TravelAccommodations />
       <Registry />
       <FAQ />
