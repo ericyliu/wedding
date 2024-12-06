@@ -1,5 +1,5 @@
 import { submit } from "@/services/google";
-import { sendEmail } from "@/services/sendgrid";
+import { sendRSVPEmail } from "@/services/emailer";
 import { RSVPRequestBody } from "@/types/routes";
 import { NextRequest } from "next/server";
 
@@ -17,7 +17,7 @@ export const POST = async (request: NextRequest) => {
     dietaryRestrictions,
     otherComments,
   }: RSVPRequestBody = await request.json();
-  await sendEmail(email);
+  await sendRSVPEmail(email);
   await submit([
     name,
     email,
