@@ -7,7 +7,7 @@ const client = new ServerClient(process.env.POSTMARK_API_KEY);
 export const sendRSVPEmail = (to: string) =>
   client.sendEmail({
     To: to,
-    From: "notify@ericangela.love",
+    From: "rsvp@ericangela.love",
     Subject: "Thank you for RSVPing to Eric and Angela's Wedding!",
     HtmlBody: rsvpResponse,
   });
