@@ -174,7 +174,7 @@ export default function RSVP() {
             />
           </div>
           {error && <p className={styles.error}>*{error}</p>}
-          <input className={styles.button} type="submit" />
+          <input className={styles.button} type="submit" value="Submit" />
         </form>
       )}
     </main>

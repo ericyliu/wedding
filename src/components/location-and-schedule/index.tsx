@@ -86,7 +86,7 @@ export const LocationAndSchedule = ({ language }: Props) => {
         <div className={styles.column}>
           <h2 className={styles.header}>Schedule</h2>
           <p className={styles.text}>
-            5:00pm - Doors open with dinner and refreshments
+            6:00pm - Doors open with dinner and refreshments
           </p>
           <p className={`${styles.text} ${styles.bold}`}>Cocktail attire</p>
         </div>
