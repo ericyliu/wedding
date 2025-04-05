@@ -88,6 +88,10 @@ export const LocationAndSchedule = ({ language }: Props) => {
           <p className={styles.text}>
             6:00pm - Doors open with dinner and refreshments
           </p>
+          <p className={styles.text}>
+            10:00pm - Karoake Afterparty at{" "}
+            <a href="https://g.co/kgs/meJz9Tv">9PlusKTV</a>
+          </p>
           <p className={`${styles.text} ${styles.bold}`}>Cocktail attire</p>
         </div>
       </div>
